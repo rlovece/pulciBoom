@@ -4,6 +4,11 @@ let vidaJugador = 100
 let vidaOponente =100
 
 function iniciarJuego() {
+    let seccionAtaque = document.getElementById ('ataque')
+    seccionAtaque.style.display = 'none'
+    let seccionMensaje = document.getElementById ('mensajes')  
+    seccionMensaje.style.display = 'none'
+
     let botonPulciJugador = document.getElementById('boton-pulci')
     botonPulciJugador.addEventListener('click', seleccionarPulciJugador)
 
@@ -36,7 +41,18 @@ function seleccionarPulciJugador() {
     }
 
     seleccionarPulciOponente()
-    habilitarAtaque ()
+    
+    let seccionSeleccionarPulci = document.getElementById ('seleccionar-pulci')
+    seccionSeleccionarPulci.style.display = 'none'
+   
+    let seccionAtaque = document.getElementById ('ataque')
+    seccionAtaque.style.display = 'block'
+
+    let seccionMensaje = document.getElementById ('mensajes')  
+    seccionMensaje.style.display = 'block'
+
+    habilitarAtaque ()   
+    
 }
 
 function habilitarAtaque () {
@@ -78,8 +94,11 @@ function combate (){
         spanVidaOponente.innerHTML = vidaOponente
         if (vidaJugador<=0 || vidaOponente<=0){
             mensajeFinal ()
+            mensajeReiniciar (1)
             let botonAtaque = document.getElementById ('combate')
             botonAtaque.disabled = true
+        } else {
+            mensajeReiniciar (0)
         }
 }
 
@@ -112,6 +131,19 @@ function mensajeFinal () {
 
 function reiniciarJuego (){
     location.reload()
+}
+
+function mensajeReiniciar (fin) {
+    spanMensajeReinciar = document.getElementById ('mensaje-reiniciar')
+    spanMensajeReinciar2 = document.getElementById ('mensaje-reiniciar2')
+    if (fin == 1) {
+        spanMensajeReinciar.innerHTML = 'Atención📣 Buena batalla!'
+        spanMensajeReinciar2.innerHTML = 'Pulsa has clic en reiniciar para volver a jugar!'
+    }
+    else{
+        spanMensajeReinciar.innerHTML = 'Atención📣 Si no estás conforme con el combate puedes reiniciar.'
+        spanMensajeReinciar2.innerHTML = 'Aunque no deberías rendirte 💪'
+    }
 }
 
 window.addEventListener('load', iniciarJuego)
