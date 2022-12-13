@@ -1,5 +1,7 @@
 let ataqueJugador
 let ataqueOponente
+let vidaJugador = 100
+let vidaOponente =100
 
 function iniciarJuego() {
     let botonPulciJugador = document.getElementById('boton-pulci')
@@ -47,15 +49,29 @@ function seleccionarPulciOponente() {
 }
 
 function combate (){
-    ataqueJugador = entreroAleatorio (1,3)
-    ataqueOponente = entreroAleatorio (1,3)
-    if (ataqueJugador == ataqueOponente) {
-        mensajeAtaque ("Empate! 😬")
-    } else if (ataqueJugador > ataqueOponente) {
-        mensajeAtaque ("Ganaste! Bravooo 🥳")
+    spanVidaJugador = document.getElementById ('vida-jugador')
+    spanVidaOponente = document.getElementById ('vida-oponente')
+
+    if (vidaJugador>0 && vidaOponente>0){
+        ataqueJugador = entreroAleatorio (1,3)
+        ataqueOponente = entreroAleatorio (1,3)
+    
+        if (ataqueJugador == ataqueOponente) {
+            mensajeAtaque ("Empate! 😬")
+        } else if (ataqueJugador > ataqueOponente) {
+            mensajeAtaque ("Ganaste! Bravooo 🥳")
+        } else {
+            mensajeAtaque ("Perdiste... Va de nuevo? 😌")
+        }
+        vidaJugador -= ataqueOponente*10
+        spanVidaJugador.innerHTML = vidaJugador
+        vidaOponente -= ataqueJugador*10
+        spanVidaOponente.innerHTML = vidaOponente
     } else {
-        mensajeAtaque ("Perdiste... Va de nuevo? 😌")
+        mensajeFinal ()
     }
+
+    
 }
 
 function mensajeAtaque (resultado) {
@@ -63,6 +79,21 @@ function mensajeAtaque (resultado) {
 
     let parrafo = document.createElement ('p')
     parrafo.innerHTML = "Atacaste con fuerza " + ataqueJugador + " y tu oponente con " + ataqueOponente + ' - ' + resultado
+    
+    seccionMensaje.appendChild(parrafo)
+}
+
+function mensajeFinal () {
+    let seccionMensaje = document.getElementById ('mensajes')
+
+    let parrafo = document.createElement ('p')
+    if (vidaJugador<=0){
+        parrafo.innerHTML = "Lo siento... PERDISTE 😥"
+    }
+    else{
+        parrafo.innerHTML = "Bravoooo.... Ganaste 🤩"
+    }
+    
     
     seccionMensaje.appendChild(parrafo)
 }
