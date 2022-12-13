@@ -1,11 +1,18 @@
 body h1{
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: rgb(175, 4, 4);
+    color: #af0404;
 }
 
 body {
     text-align: justify;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: black;
+}
+
+body button{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-color: #af0404 ;
+    font-size:larger;
 }

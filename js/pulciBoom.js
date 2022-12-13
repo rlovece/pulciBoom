@@ -1,6 +1,12 @@
+let ataqueJugador
+let ataqueOponente
+
 function iniciarJuego() {
     let botonPulciJugador = document.getElementById('boton-pulci')
     botonPulciJugador.addEventListener('click', seleccionarPulciJugador)
+
+    let botonAtaque = document.getElementById ('combate')
+    botonAtaque.addEventListener ('click', combate)
 }
 
 function entreroAleatorio (min, max){
@@ -38,6 +44,21 @@ function seleccionarPulciOponente() {
     } else {
         spanPulciOponente.innerHTML = 'Angry'
     }
+}
+
+function combate (){
+    ataqueJugador = entreroAleatorio (1,3)
+    ataqueOponente = entreroAleatorio (1,3)
+    mensajeAtaque ()
+}
+
+function mensajeAtaque () {
+    let seccionMensaje = document.getElementById ('mensajes')
+
+    let parrafo = document.createElement ('p')
+    parrafo.innerHTML = "Atacaste con fuerza " + ataqueJugador + " y tu oponente con " + ataqueOponente
+    
+    seccionMensaje.appendChild(parrafo)
 }
 
 window.addEventListener('load', iniciarJuego)
