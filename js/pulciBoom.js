@@ -9,6 +9,9 @@ function iniciarJuego() {
 
     let botonAtaque = document.getElementById ('combate')
     botonAtaque.addEventListener ('click', combate)
+
+    let botonReiniciar = document.getElementById ('reiniciar')
+    botonReiniciar.addEventListener ('click', reiniciarJuego)
 }
 
 function entreroAleatorio (min, max){
@@ -33,6 +36,12 @@ function seleccionarPulciJugador() {
     }
 
     seleccionarPulciOponente()
+    habilitarAtaque ()
+}
+
+function habilitarAtaque () {
+    let botonAtaque = document.getElementById ('combate')
+    botonAtaque.disabled = false
 }
 
 function seleccionarPulciOponente() {
@@ -52,7 +61,7 @@ function combate (){
     spanVidaJugador = document.getElementById ('vida-jugador')
     spanVidaOponente = document.getElementById ('vida-oponente')
 
-    if (vidaJugador>0 && vidaOponente>0){
+    
         ataqueJugador = entreroAleatorio (1,3)
         ataqueOponente = entreroAleatorio (1,3)
     
@@ -67,11 +76,11 @@ function combate (){
         spanVidaJugador.innerHTML = vidaJugador
         vidaOponente -= ataqueJugador*10
         spanVidaOponente.innerHTML = vidaOponente
-    } else {
-        mensajeFinal ()
-    }
-
-    
+        if (vidaJugador<=0 || vidaOponente<=0){
+            mensajeFinal ()
+            let botonAtaque = document.getElementById ('combate')
+            botonAtaque.disabled = true
+        }
 }
 
 function mensajeAtaque (resultado) {
@@ -87,15 +96,22 @@ function mensajeFinal () {
     let seccionMensaje = document.getElementById ('mensajes')
 
     let parrafo = document.createElement ('p')
-    if (vidaJugador<=0){
+    if (vidaJugador<=0 && vidaOponente>0){
         parrafo.innerHTML = "Lo siento... PERDISTE 😥"
     }
-    else{
+    else if (vidaJugador>0 && vidaOponente<=0){
         parrafo.innerHTML = "Bravoooo.... Ganaste 🤩"
+    } else {
+        parrafo.innerHTML = "Ambos murieron ☠"
     }
     
     
     seccionMensaje.appendChild(parrafo)
+}
+
+
+function reiniciarJuego (){
+    location.reload()
 }
 
 window.addEventListener('load', iniciarJuego)
