@@ -1,18 +1,101 @@
-body h1{
-    text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: #af0404;
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap');
+
+#titulo-h1{
+    display: flex;
+    justify-content: center;
+    font-family: 'Rubik Bubbles', cursive;
+    color: #E6E2C3;
+    background-color: #1C315E;
+    height: 150px;
+    font-size: 28px;
+    text-shadow: 6px 6px 6px #aaa;
+    
 }
 
 body {
-    text-align: justify;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: black;
+    font-family: cursive;
+    color: #242214;
+    text-shadow: 6px 6px 6px #aaa;
+    background-image: url("../../PulciBoom/Img/Fondo.png");
 }
 
-body button{
-    text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    border-color: #af0404 ;
-    font-size:larger;
+#seleccionar-pulci{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#id-las-tarjetas {
+    display: flex;
+    align-items: center;
+}
+
+#id-tarjeta{
+    display: flex;    justify-content: center;
+    align-items: center;
+    width: 275px;
+    height: 120px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px groove;
+    background: #227C70;
+    margin: 10px;
+    border-radius: 20px;
+}
+
+#id-tarjeta img {
+    width: 100px
+}
+
+.class-vidas{
+    color: #b3090f;
+    font-size: 22px;
+}
+
+button{
+    font-family: cursive;
+    border-color: #227C70;
+    font-size: medium;
+    background: #E6E2C3;
+    border-radius: 10px;
+
+}
+
+#ataque{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#las-dos-tarjetas{
+    display: flex;
+}
+
+.class-tarjetas-juego{
+    display: flex;    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 350px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px groove;
+    background: #227C70;
+    margin: 10px;
+    border-radius: 20px;
+
+}
+
+#msj-ataque {
+    display: flex;
+    justify-content: center;
+    font-family: 'Rubik Bubbles', cursive;
+    color: #131312;
+    font-size: 20px;
+    text-shadow: 6px 6px 6px #aaa;
 }

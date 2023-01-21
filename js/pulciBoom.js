@@ -1,7 +1,7 @@
 let ataqueJugador
 let ataqueOponente
-let vidaJugador = 100
-let vidaOponente =100
+let vidaJugador = 10
+let vidaOponente =10
 
 function iniciarJuego() {
     let seccionAtaque = document.getElementById ('ataque')
@@ -46,10 +46,10 @@ function seleccionarPulciJugador() {
     seccionSeleccionarPulci.style.display = 'none'
    
     let seccionAtaque = document.getElementById ('ataque')
-    seccionAtaque.style.display = 'block'
+    seccionAtaque.style.display = 'flex'
 
     let seccionMensaje = document.getElementById ('mensajes')  
-    seccionMensaje.style.display = 'block'
+    seccionMensaje.style.display = 'flex'
 
     habilitarAtaque ()   
     
@@ -76,6 +76,8 @@ function seleccionarPulciOponente() {
 function combate (){
     spanVidaJugador = document.getElementById ('vida-jugador')
     spanVidaOponente = document.getElementById ('vida-oponente')
+    let spanAtaqueJugador = document.getElementById ('ataque-jugador')
+    let spanAtaqueOponente = document.getElementById ('ataque-oponente')
 
     
         ataqueJugador = entreroAleatorio (1,3)
@@ -88,10 +90,12 @@ function combate (){
         } else {
             mensajeAtaque ("Perdiste... Va de nuevo? 😌")
         }
-        vidaJugador -= ataqueOponente*10
-        spanVidaJugador.innerHTML = vidaJugador
-        vidaOponente -= ataqueJugador*10
-        spanVidaOponente.innerHTML = vidaOponente
+        vidaJugador -= ataqueOponente
+        spanVidaJugador.innerHTML = mostrarVidas (vidaJugador)
+        vidaOponente -= ataqueJugador
+        spanVidaOponente.innerHTML = mostrarVidas (vidaOponente)
+
+
         if (vidaJugador<=0 || vidaOponente<=0){
             mensajeFinal ()
             mensajeReiniciar (1)
@@ -102,30 +106,75 @@ function combate (){
         }
 }
 
-function mensajeAtaque (resultado) {
-    let seccionMensaje = document.getElementById ('mensajes')
-
-    let parrafo = document.createElement ('p')
-    parrafo.innerHTML = "Atacaste con fuerza " + ataqueJugador + " y tu oponente con " + ataqueOponente + ' - ' + resultado
-    
-    seccionMensaje.appendChild(parrafo)
+function mostrarVidas (vida){
+    if (vida==10)
+    {
+        return '♥♥♥♥♥♥♥♥♥♥'
+    } else if (vida==9)
+    {
+        return '♥♥♥♥♥♥♥♥♥'
+    } else if (vida==8)
+    {
+        return '♥♥♥♥♥♥♥♥'
+    } else if (vida==7)
+    {
+        return '♥♥♥♥♥♥♥'
+    } else if (vida==6)
+    {
+        return '♥♥♥♥♥♥'
+    } else if (vida==5)
+    {
+        return '♥♥♥♥♥'
+    } else if (vida==4)
+    {
+        return '♥♥♥♥'
+    } else if (vida==3)
+    {
+        return '♥♥♥'
+    } else if (vida==2)
+    {
+        return '♥♥'
+    } else if (vida==1)
+    {
+        return '♥'
+    } else
+    {
+        return '☠'
+    } 
 }
 
-function mensajeFinal () {
-    let seccionMensaje = document.getElementById ('mensajes')
+function mostrarAtaque (ataque){
+    if (ataque==3)
+    {
+        return '💣💣💣'
+    } else if (ataque==2)
+    {
+        return '💣💣'
+    } else {
+        return '💣'
+    } 
+}
 
-    let parrafo = document.createElement ('p')
+function mensajeAtaque (resultado) {
+    let mensaje = document.getElementById ('mensajes')
+
+    mensaje.innerHTML = resultado
+
+}
+
+
+function mensajeFinal () {
+    let seccionMensaje = document.getElementById ('msj-ataque')
+
     if (vidaJugador<=0 && vidaOponente>0){
-        parrafo.innerHTML = "Lo siento... PERDISTE 😥"
+        seccionMensaje.innerHTML = "Lo siento... PERDISTE 😥"
     }
     else if (vidaJugador>0 && vidaOponente<=0){
-        parrafo.innerHTML = "Bravoooo.... Ganaste 🤩"
+        seccionMensaje.innerHTML = "Bravoooo.... Ganaste el partido!! 🤩"
     } else {
-        parrafo.innerHTML = "Ambos murieron ☠"
+        seccionMensaje.innerHTML = "Ambos murieron ☠"
     }
     
-    
-    seccionMensaje.appendChild(parrafo)
 }
 
 

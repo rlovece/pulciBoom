@@ -11,8 +11,9 @@
 </head>
 <body>
 
-<h1> 🐣 PulciBOOM 💣 </h1>
-
+<div id="titulo-h1">
+    <h1> 🐣 PulciBOOM 💣</h1>
+</div>
 
 
 <section id="seleccionar-pulci">
@@ -22,36 +23,61 @@
 
     <h3> Elige tu Pulci</h3>
 
-    <label for="nerd">Nerd</label>
-    <input type="radio" name="pulci" id="nerd" />
+    <div id="id-las-tarjetas">
+        <div id="id-tarjeta" class="class-tarjeta">
+            <img src="Img/nerd.png" alt="Nerd">
+            <label for="nerd">Nerd</label>
+            <input type="radio" name="pulci" id="nerd" />
+        </div>
+    
+        <div id="id-tarjeta" class="class-tarjeta">
+            <img src="Img/happy.png" alt="crazy">
+            <label for="crazy">Crazy</label>
+            <input type="radio" name="pulci" id="crazy" />
+        </div>
+    
+        <div id="id-tarjeta" class="class-tarjeta">
+            <img src="Img/angry.png" alt="Angry">
+            <label for="angry">Angry</label>
+            <input type="radio" name="pulci" id="angry" />
+        </div>
+    </div>
+    
 
-    <label for="crazy">Crazy</label>
-    <input type="radio" name="pulci" id="crazy" />
-
-    <label for="angry">Angry</label>
-    <input type="radio" name="pulci" id="angry" />
-
-    <button id="boton-pulci"> Seleccionar </button>
+    <button id="boton-pulci" class="class-boton"> Seleccionar </button>
 </section>
 
 <section id="ataque"> 
-    <h2>
-        La batalla ha iniciado! Que gane el mejor!!
-    </h2>
-    <h3>Porcentaje de vidas</h3>
-    <p>Tu pulci <span id="pulci-jugador"></span> tiene <span id="vida-jugador"> 100 </span>% de vida </p>
-    <p>El pulci <span id="pulci-oponente"></span> de tu oponente tiene <span id="vida-oponente"> 100 </span>% de vida </p>
-</section>
-
-<section id="mensajes">
-     <p><button id="combate" disabled>Atacar 💣</button></p>
+    <p> <span id="msj-ataque"> La batalla ha iniciado! Que gane el mejor!! </span> </p>
+    <div id="atacar">
+        <p id="mensajes"></p>
+        <p>
+            <button id="combate" disabled>Atacar 💣</button>   
+            <button id="boton-reiniciar">Reiniciar</button>
+        </p>
+        
+    </div>
+    <div id="las-dos-tarjetas">
+        <div id="tarjeta-jugador" class="class-tarjetas-juego">
+            <h3>Tú</h3>
+            <p><span id="pulci-jugador"></span></p>
+            <p><span id="vida-jugador" class="class-vidas"> ♥♥♥♥♥♥♥♥♥♥ </span></p>
+            <p><span id="ataque-jugador"> </span></p>
+        </div>
+        <div id="tarjeta-oponente" class="class-tarjetas-juego">
+            <h3>Tu oponente</h3>
+            <p><span id="pulci-oponente"></span> </p>
+            <p><span id="vida-oponente" class="class-vidas"> ♥♥♥♥♥♥♥♥♥♥ </span></p>
+            <p><span id="ataque-oponente"> </span></p>
+        </div>
+    </div>  
 </section>
 
 <section id="reiniciar">
-    <p> </p><p> </p>
+    
     <p><span id = 'mensaje-reiniciar'></span> </p>
     <p><span id = 'mensaje-reiniciar2'></span> </p>
-    <button id="boton-reiniciar">Reiniciar</button>
+
     
 </section>
     
