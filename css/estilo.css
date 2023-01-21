@@ -80,8 +80,8 @@ button{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 250px;
-    height: 350px;
+    width: 200px;
+    height: 250px;
     padding: 10px;
     box-sizing: border-box;
     border: 1px groove;
@@ -98,4 +98,10 @@ button{
     color: #131312;
     font-size: 20px;
     text-shadow: 6px 6px 6px #aaa;
+}
+
+@media (max-width: 450px) {
+    #id-las-tarjetas, #las-dos-tarjetas {
+        flex-direction: column;
+    }
 }
