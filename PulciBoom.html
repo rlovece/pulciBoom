@@ -6,80 +6,78 @@
     <!--  incluyo el ccs -->
     <link rel="stylesheet" href="css/estilo.css"> 
     <!--  incluyo el js -->
-    <script src =  "js/pulciBoom.js"></script>
+   
     <title>PulciBOOM</title>
 </head>
 <body>
 
-<div id="titulo-h1">
-    <h1> 🐣 PulciBOOM 💣</h1>
-</div>
-
-
-<section id="seleccionar-pulci">
-    <h2>
-        Bienvenido a este increible juego!!
-    </h2>
-
-    <h3>Elige tu Pulci</h3>
-
-    <div id="id-las-tarjetas">
-        <div id="id-tarjeta" class="class-tarjeta">
-            <img src="Img/nerd.png" alt="Nerd">
-            <label for="nerd">Nerd</label>
-            <input type="radio" name="pulci" id="nerd" />
-        </div>
-    
-        <div id="id-tarjeta" class="class-tarjeta">
-            <img src="Img/happy.png" alt="crazy">
-            <label for="crazy">Crazy</label>
-            <input type="radio" name="pulci" id="crazy" />
-        </div>
-    
-        <div id="id-tarjeta" class="class-tarjeta">
-            <img src="Img/angry.png" alt="Angry">
-            <label for="angry">Angry</label>
-            <input type="radio" name="pulci" id="angry" />
-        </div>
+    <div id="titulo-h1">
+        <h1> 🐣 PulciBOOM 💣</h1>
     </div>
-    
 
-    <button id="boton-pulci" class="class-boton"> Seleccionar </button>
-</section>
 
-<section id="ataque"> 
-    <p> <span id="msj-ataque"> La batalla ha iniciado! Que gane el mejor!! </span> </p>
-    <div id="atacar">
-        <p id="mensajes"></p>
-        <p>
-            <button id="combate" disabled>Atacar 💣</button>   
-            <button id="boton-reiniciar">Reiniciar</button>
-        </p>
+    <section id="seleccionar-pulci">
+        <h2>
+            Bienvenido a este increible juego!!
+        </h2>
+
+        <h3>Elige tu Pulci</h3>
+
+        <div id="id-las-tarjetas">
+            <input type="radio" name="pulci" id="nerd"/>
+            <label id="id-tarjeta" for="nerd">
+                <p>Nerd</p>
+                <img src="Img/nerd.png" alt="Nerd">
+            </label>
         
-    </div>
-    <div id="las-dos-tarjetas">
-        <div id="tarjeta-jugador" class="class-tarjetas-juego">
-            <h3>Tú</h3>
-            <p><span id="pulci-jugador"></span></p>
-            <p><span id="vida-jugador" class="class-vidas"> ♥♥♥♥♥♥♥♥♥♥ </span></p>
-            <p><span id="ataque-jugador"> </span></p>
+            <input type="radio" name="pulci" id="crazy"/>
+            <label id="id-tarjeta" for="crazy">
+                <p>Crazy</p>
+                <img src="Img/happy.png" alt="crazy">
+            </label>
+        
+            <input type="radio" name="pulci" id="angry" />
+            <label id="id-tarjeta" for="angry">
+                <img src="Img/angry.png" alt="Angry">
+                <p >Angry</p>
+            </label>
         </div>
-        <div id="tarjeta-oponente" class="class-tarjetas-juego">
-            <h3>Tu oponente</h3>
-            <p><span id="pulci-oponente"></span> </p>
-            <p><span id="vida-oponente" class="class-vidas"> ♥♥♥♥♥♥♥♥♥♥ </span></p>
-            <p><span id="ataque-oponente"> </span></p>
+        
+
+        <button id="boton-pulci" class="class-boton"> Seleccionar </button>
+    </section>
+
+    <section id="ataque"> 
+        <p> <span id="msj-ataque"> La batalla ha iniciado! Que gane el mejor!! </span> </p>
+        <div id="atacar">
+            <p id="mensajes"></p>
+            <p>
+                <button id="combate" disabled>Atacar 💣</button>   
+                <button id="boton-reiniciar">Reiniciar</button>
+            </p>
+            
         </div>
-    </div>  
-</section>
+        <div id="las-dos-tarjetas">
+            <div id="tarjeta-jugador" class="class-tarjetas-juego">
+                <h3>Tú</h3>
+                <p><span id="pulci-jugador"></span></p>
+                <p><span id="vida-jugador" class="class-vidas"> ♥♥♥♥♥♥♥♥♥♥ </span></p>
+                <p><span id="ataque-jugador"> </span></p>
+            </div>
+            <div id="tarjeta-oponente" class="class-tarjetas-juego">
+                <h3>Tu oponente</h3>
+                <p><span id="pulci-oponente"></span> </p>
+                <p><span id="vida-oponente" class="class-vidas"> ♥♥♥♥♥♥♥♥♥♥ </span></p>
+                <p><span id="ataque-oponente"> </span></p>
+            </div>
+        </div>  
+    </section>
 
-<section id="reiniciar">
+    <section id="reiniciar">
+        <p><span id = 'mensaje-reiniciar'></span> </p>
+        <p><span id = 'mensaje-reiniciar2'></span> </p>
+    </section>
     
-    <p><span id = 'mensaje-reiniciar'></span> </p>
-    <p><span id = 'mensaje-reiniciar2'></span> </p>
-
-    
-</section>
-    
+    <script src =  "js/pulciBoom.js"></script>
 </body>
 </html>

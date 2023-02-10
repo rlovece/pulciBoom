@@ -1,34 +1,42 @@
+const seccionAtaque = document.getElementById ('ataque')
+const seccionMensaje = document.getElementById ('mensajes') 
+const botonPulciJugador = document.getElementById('boton-pulci')
+const botonAtaque = document.getElementById ('combate')
+const botonReiniciar = document.getElementById ('reiniciar')
+
+const inputNerd = document.getElementById('nerd')
+const inputCrazy = document.getElementById('crazy')
+const inputAngry = document.getElementById('angry')
+const spanPulciJugador = document.getElementById('pulci-jugador')
+
+const seccionSeleccionarPulci = document.getElementById ('seleccionar-pulci')
+
+const spanPulciOponente = document.getElementById('pulci-oponente')
+
+const mensaje = document.getElementById ('mensajes')
+
+const seccionMensajeAtaque = document.getElementById ('msj-ataque')
+
 let ataqueJugador
 let ataqueOponente
 let vidaJugador = 10
 let vidaOponente =10
 
 function iniciarJuego() {
-    let seccionAtaque = document.getElementById ('ataque')
+    
     seccionAtaque.style.display = 'none'
-    let seccionMensaje = document.getElementById ('mensajes')  
     seccionMensaje.style.display = 'none'
 
-    let botonPulciJugador = document.getElementById('boton-pulci')
-    botonPulciJugador.addEventListener('click', seleccionarPulciJugador)
-
-    let botonAtaque = document.getElementById ('combate')
-    botonAtaque.addEventListener ('click', combate)
-
-    let botonReiniciar = document.getElementById ('reiniciar')
+    botonPulciJugador.addEventListener('click', seleccionarPulciJugador)  
+    botonAtaque.addEventListener ('click', combate)    
     botonReiniciar.addEventListener ('click', reiniciarJuego)
 }
 
 function entreroAleatorio (min, max){
     return Math.floor (Math.random()* (max-min+1)+1)
-    
 }
 
 function seleccionarPulciJugador() {
-    let inputNerd = document.getElementById('nerd')
-    let inputCrazy = document.getElementById('crazy')
-    let inputAngry = document.getElementById('angry')
-    let spanPulciJugador = document.getElementById('pulci-jugador')
     
     if (inputNerd.checked) {
         spanPulciJugador.innerHTML = 'Nerd'
@@ -41,28 +49,18 @@ function seleccionarPulciJugador() {
     }
 
     seleccionarPulciOponente()
-    
-    let seccionSeleccionarPulci = document.getElementById ('seleccionar-pulci')
-    seccionSeleccionarPulci.style.display = 'none'
-   
-    let seccionAtaque = document.getElementById ('ataque')
+    seccionSeleccionarPulci.style.display = 'none' 
     seccionAtaque.style.display = 'flex'
-
-    let seccionMensaje = document.getElementById ('mensajes')  
     seccionMensaje.style.display = 'flex'
-
     habilitarAtaque ()   
-    
 }
 
 function habilitarAtaque () {
-    let botonAtaque = document.getElementById ('combate')
     botonAtaque.disabled = false
 }
 
 function seleccionarPulciOponente() {
     let oponente = entreroAleatorio(1,3)
-    let spanPulciOponente = document.getElementById('pulci-oponente')
 
     if (oponente == 1) {
         spanPulciOponente.innerHTML = 'Nerd'
@@ -76,8 +74,6 @@ function seleccionarPulciOponente() {
 function combate (){
     spanVidaJugador = document.getElementById ('vida-jugador')
     spanVidaOponente = document.getElementById ('vida-oponente')
-    let spanAtaqueJugador = document.getElementById ('ataque-jugador')
-    let spanAtaqueOponente = document.getElementById ('ataque-oponente')
 
     
         ataqueJugador = entreroAleatorio (1,3)
@@ -156,25 +152,20 @@ function mostrarAtaque (ataque){
 }
 
 function mensajeAtaque (resultado) {
-    let mensaje = document.getElementById ('mensajes')
-
     mensaje.innerHTML = resultado
-
 }
 
 
 function mensajeFinal () {
-    let seccionMensaje = document.getElementById ('msj-ataque')
 
     if (vidaJugador<=0 && vidaOponente>0){
-        seccionMensaje.innerHTML = "Lo siento... PERDISTE 😥"
+        seccionMensajeAtaque.innerHTML = "Lo siento... PERDISTE 😥"
     }
     else if (vidaJugador>0 && vidaOponente<=0){
-        seccionMensaje.innerHTML = "Bravoooo.... Ganaste el partido!! 🤩"
+        seccionMensajeAtaque.innerHTML = "Bravoooo.... Ganaste el partido!! 🤩"
     } else {
-        seccionMensaje.innerHTML = "Ambos murieron ☠"
+        seccionMensajeAtaque.innerHTML = "Ambos murieron ☠"
     }
-    
 }
 
 
